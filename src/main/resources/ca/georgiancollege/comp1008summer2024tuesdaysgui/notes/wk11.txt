@@ -1,0 +1,71 @@
+JavaFX
+GUI
+	Graphical User Interface
+		not console app
+Organized using MVC
+
+MVC like a restaurant
+Dining Room		view
+Waiter/Waitress		controller
+Kitchen/Bar		model
+
+
+
+Model: .java file. Normal,Concrete classes
+with NO main method. Contain screen logic. Processes a request made by Controller
+
+View: .fxml: like html but java version. has same syntax but different element names. elements are called Nodes
+
+Controller: the liason between view and model. handles events
+
+
+JavaFX can be compared to html/web
+Web				JavaFX
+Window				Stage
+	browser
+Document			Scene
+	code inside body
+Elements			Node
+	tags
+Events
+	events
+	window			initialze
+	mouse			MouseEvent
+	keyboard		KeyboardEvent
+
+
+Containers
+	Can contain other nodes
+	First Contain = Root Node
+	Outlines how the rest of the Nodes
+	will be placed
+
+AnchorPane: Nodes can be anchored. Contraints can be placed. Good for re-sizing layout
+
+BorderPane: outlines 5 spots: top, bottom, left, center, right. Omit a spot. Each spot has 1 child Container
+
+Pane: a general contain equivalent to DIV
+
+GridPane: Tabular data: rows and columns
+
+ScrollPane: A pane with scrollbars
+SplitPane: a pane split either horizontally or vertically. Divider is visible
+VBox: VerticalBox. All Nodes stacked vertically
+HBox: All nodes horizontally stacked
+TabPane: Tabs with Panes
+
+
+
+
+
+
+
+
+Non-Containers
+
+
+
+
+
+
+
