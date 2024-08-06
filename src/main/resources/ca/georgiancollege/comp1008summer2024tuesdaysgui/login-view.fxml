@@ -32,7 +32,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmail" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0" promptText="EMAIL" style="-fx-border-color: black;" GridPane.rowIndex="2">
+            <TextField fx:id="txtEmail" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#onEmailKeyPressed" prefWidth="400.0" promptText="EMAIL" style="-fx-border-color: black;" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
@@ -49,12 +49,12 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onRegister" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5e5e5e;" text="REGISTER">
+                  <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#onRegister" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5e5e5e;" text="REGISTER">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onSignin" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #15037e;" text="SIGN IN" textFill="WHITE">
+                  <Button fx:id="btnSignin" mnemonicParsing="false" onAction="#onSignin" onMouseEntered="#onButtonMouseEntered" onMouseExited="#onButtonMouseExited" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #15037e;" text="SIGN IN" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

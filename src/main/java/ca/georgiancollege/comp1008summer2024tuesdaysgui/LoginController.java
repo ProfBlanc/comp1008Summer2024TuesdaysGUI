@@ -2,10 +2,8 @@ package ca.georgiancollege.comp1008summer2024tuesdaysgui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class LoginController {
@@ -20,6 +18,10 @@ public class LoginController {
     private Label lblError;
 
     private LoginModel model = new LoginModel();
+
+    @FXML
+    private Button btnRegister, btnSignin;
+
 
     @FXML
     void initialize(){
@@ -99,6 +101,56 @@ public class LoginController {
         alert.setTitle("What Happened?");
         alert.setContentText("How could you forget your password, eh?!");
         alert.show();
+    }
+
+    private StringBuilder sb = new StringBuilder();
+
+    @FXML
+    void onEmailKeyPressed(KeyEvent  event) {
+
+        System.out.println("Text=" +event.getText());
+        System.out.println("Code=" + event.getCode().getCode());
+        int keyCodeNum = event.getCode().getCode();
+
+        if(keyCodeNum >=65 && keyCodeNum <= 90 || keyCodeNum >= 48 && keyCodeNum <= 57){
+            sb.setLength(0);
+            sb.append(txtEmail.getText());
+
+        } else if (keyCodeNum == 37 || keyCodeNum == 39 || keyCodeNum == 8 || keyCodeNum == 46) {
+            //do nothing because user clicked on arrows
+
+        } else{
+            txtEmail.setText(sb.toString());
+            txtEmail.positionCaret(txtEmail.getText().length() );
+        }
+
+    }
+
+    boolean areAllRequiredFieldsFilledOut(){
+
+        return txtEmail.getText().length() > 0 && !txtPass.getText().isEmpty();
+    }
+
+    @FXML
+    void onButtonMouseEntered(MouseEvent event) {
+        System.out.println("onButtonMouseEntered");
+
+                if(areAllRequiredFieldsFilledOut()){
+
+            Button currentButton = (Button) event.getSource();
+            currentButton.setDisable(true);
+
+        }
+
+    }
+
+    @FXML
+    void onButtonMouseExited(MouseEvent event) {
+
+        System.out.println("on mouse exited");
+
+        Button currentButton = (Button) event.getSource();
+            currentButton.setDisable(false);
     }
 
 }
